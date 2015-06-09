@@ -1,0 +1,8 @@
+#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
+
+int main() 
+{
+	sf::CircleShape shape;
+	return 0;
+}

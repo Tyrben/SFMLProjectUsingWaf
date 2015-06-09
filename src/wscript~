@@ -1,0 +1,13 @@
+#! /usr/bin/env python
+# encoding: utf-8
+
+def build(bld):
+	bld.program(
+		features='cxx cxxprogram', #is it an option ?
+		source='main.cpp',
+		target='app',
+		use = ['SFML']#,
+		#includes = '../thirdParty/SFML-2.2/include'#,
+#		export_includes = '../thirdParty/SFML-2.2/include'
+	)
+
