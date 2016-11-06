@@ -1,7 +1,9 @@
 #! /usr/bin/env python
 # encoding: utf-8
 
-VERSION = "0.1"
+import os
+
+VERSION = "0.2"
 APPNAME = "wafTest"
 
 def options(opt):
@@ -9,15 +11,14 @@ def options(opt):
 
 def configure(cfg):
 	cfg.load('compiler_cxx')
-	cfg.LIB_SFML = ['sfml-graphics', 'sfml-system', 'sfml-window']
-	cfg.LIBPATH_SFML   = ['thirdParty/SFML-2.2/lib']
-	cfg.INCLUDES_SFML  = ['thirdParty/SFML-2.2/include']
+	cfg.env.LIB_SFML = ['sfml-graphics', 'sfml-system', 'sfml-window']
+	cfg.env.LIBPATH_SFML   = [os.path.join(os.getcwd(), 'thirdParty/SFML-2.2/lib')]
+	cfg.env.INCLUDES_SFML  = [os.path.join(os.getcwd(), 'thirdParty/SFML-2.2/include')]
 	cfg.check(
 		features='cxx cxxprogram', 
 		cxxflags=['-std=c++11', '-Wall']
 	)
 
 def build(bld):
-#	bld(export_includes='thirdParty/SFML-2.2/include', name='sfml')
 	bld.recurse('src')
 

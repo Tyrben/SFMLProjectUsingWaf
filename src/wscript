@@ -3,11 +3,9 @@
 
 def build(bld):
 	bld.program(
-		features='cxx cxxprogram', #is it an option ?
+		features='cxx cxxprogram',
 		source='main.cpp',
 		target='app',
-		use = ['SFML'],
-		includes = '../thirdParty/SFML-2.2/include'#,
-#		export_includes = '../thirdParty/SFML-2.2/include'
+		use = ['SFML']
 	)
 
